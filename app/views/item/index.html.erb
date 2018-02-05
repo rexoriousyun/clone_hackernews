@@ -1,42 +1,66 @@
-<div class="top">
-  <div class="title">
-    <a href=".">
-      <%=image_tag('y18.gif')%>
-      <b>Hacker News</b>
-    </a>
+<div class="container">
+  <div class="top">
+    <div class="left">
+      <div class="title">
+        <a href=".">
+          <%=image_tag('y18.gif')%>
+          <b>Hacker News</b>
+        </a>
+      </div>
+      <div class="category">
+        <a href="https://news.ycombinator.com/newest">new</a> |
+        <a href="https://news.ycombinator.com/newcomments">comments</a> |
+        <a href="https://news.ycombinator.com/show">show</a> |
+        <a href="https://news.ycombinator.com/ask">ask</a> |
+        <a href="https://news.ycombinator.com/jobs">jobs</a> |
+        <a href="https://news.ycombinator.com/submit">submit</a>
+      </div>
+    </div>
+    <div class="login">
+      <a href="#">login</a>
+    </div>
   </div>
-  <div class="category">
-    <a href="#">new</a> |
-    <a href="#">comments</a> |
-    <a href="#">show</a> |
-    <a href="#">ask</a> |
-    <a href="#">jobs</a> |
-    <a href="#">submit</a>
+  <div class="main">
+    <div class="itemList">
+      <% @items.each {|item| %>
+        <div class="item">
+          <div class="ranking">
+            <%= item['ranking'] %>.
+            <a href=<%= item['comment_link']%>><%= image_tag('grayarrow.gif') %></a>
+          </div>
+          <div class="content">
+            <div class="upper">
+              <a href=<%= item['url'] %>><%= item['title'] %></a> <span class="address"><a href=<%=item['host_search']%>><%= item['host'] %></a></span>
+            </div>
+            <div class="lower">
+              <%= item['score'] %> by <a href=<%= item['by_link']%>><%= item['by'] %></a> <%= item['time'] %> ago | hide | <a href=<%= item['comment_link']%>><%=item['comment']%></a>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <div class="more">
+      <%= link_to "More", item_index_path, id: "load-more"%>
+    </div>
   </div>
-  <div class="login">
-    <a href="#">login</a>
-  </div>
-</div>
-<div class="main">
-  <%= @items %>
-</div>
-<div class="footer">
-  <div class="application">
-    <a href="https://www.ycombinator.com/apply/">Applications are open for YC Summer 2018</a>
-  </div>
-  <div class="links">
-    <a href="https://news.ycombinator.com/newsguidelines.html">Guidelines</a> |
-    <a href="https://news.ycombinator.com/newsfaq.html">FAQ</a> |
-    <a href="mailto:hn@ycombinator.com">Support</a> |
-    <a href="https://github.com/HackerNews/API">API</a> |
-    <a href="https://news.ycombinator.com/security.html">Security</a> |
-    <a href="https://news.ycombinator.com/lists">Lists</a> |
-    <a href="https://news.ycombinator.com/bookmarklet.html">Bookmarklet</a> |
-    <a href="https://news.ycombinator.com/dmca.html">DMCA</a> |
-    <a href="http://www.ycombinator.com/apply/">Apply to YC</a> |
-    <a href="mailto:hn@ycombinator.com">Contact</a>
-  </div>
-  <div class="search">
-    <form>Search: <input type="text"></form>
+  <div class="footer">
+    <div class="application">
+      <a href="https://www.ycombinator.com/apply/">Applications are open for YC Summer 2018</a>
+    </div>
+    <div class="links">
+      <a href="https://news.ycombinator.com/newsguidelines.html">Guidelines</a> |
+      <a href="https://news.ycombinator.com/newsfaq.html">FAQ</a> |
+      <a href="mailto:hn@ycombinator.com">Support</a> |
+      <a href="https://github.com/HackerNews/API">API</a> |
+      <a href="https://news.ycombinator.com/security.html">Security</a> |
+      <a href="https://news.ycombinator.com/lists">Lists</a> |
+      <a href="https://news.ycombinator.com/bookmarklet.html">Bookmarklet</a> |
+      <a href="https://news.ycombinator.com/dmca.html">DMCA</a> |
+      <a href="http://www.ycombinator.com/apply/">Apply to YC</a> |
+      <a href="mailto:hn@ycombinator.com">Contact</a>
+    </div>
+    <div class="search">
+      <form>Search: <input type="text" value size="17"></form>
+    </div>
   </div>
 </div>

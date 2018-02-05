@@ -4,38 +4,115 @@
 
 body {
   font-family: Verdana, Geneva, sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 a {
   text-decoration: none;
   color: #000000;
+  font-size: 10pt;
   :visited {
     color: #828282;
   }
 }
 
-.top {
-  background-color: #ff6600;
-  font-size: 10pt;
-  .title {
-    display: inline-block;
+.container {
+  width: 85%;
+  .top {
+    background-color: #ff6600;
+    font-size: 10pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    .left {
+      display: flex;
+      align-items: center;
+      .title {
+        a {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          img {
+            border: 1px white solid;
+            margin-right: 4px;
+          }
+        }
+      }
+      .category {
+        display: inline-block;
+      }
+    }
+    .login {
+      display: inline-block;
+      margin-right: 4px;
+    }
   }
-  .category {
-    display: inline-block;
-  }
-  .login {
-    display: inline-block;
-    float: right;
-  }
-}
 
-.main {
-  background-color: rgb(246, 246, 239);
-}
+  .main {
+    background-color: rgb(246, 246, 239);
+    padding: 10px 10px 10px 0;
+    .itemList {
+      .item {
+        display: flex;
+        flex-direction: row;
+        font-size: 10pt;
+        .ranking {
+          color: #828282;
+          width: 34px;
+          text-align: right;
+        }
+        .content {
+          margin-bottom: 7px;
+          margin-left: 2px;
+          .upper {
+            margin-bottom: 2px;
+            .address {
+              a{
+                color: #828282;
+                font-size: 8pt;
+              }
+            }
+          }
+          .lower {
+            a {
+              font-size: 7pt;
+              color: #828282;
+            }
+            color: #828282;
+            font-size: 7pt;
+          }
+        }
+      }
+    }
+    .more {
+      padding: 5px 0 5px 34px;
+    }
+  }
 
-.footer {
-  background-color: rgb(246, 246, 239);
-  a {
-    font-size: 8pt;
+  .footer {
+    background-color: rgb(246, 246, 239);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-color: #ff6600;
+    border-top-style: solid;
+    border-top-width: 2px;
+    font-size: 10pt;
+    .application {
+      margin: 14px 0;
+    }
+    .links {
+      font-size: 8pt;
+      a {
+        font-size: 8pt;
+      }
+    }
+    .search {
+      color: #828282;
+      margin: 14px 0;
+    }
   }
 }

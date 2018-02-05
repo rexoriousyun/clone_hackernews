@@ -6,6 +6,7 @@ body {
   font-family: Verdana, Geneva, sans-serif;
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 a {
@@ -33,15 +34,19 @@ a {
         a {
           display: flex;
           align-items: center;
-          margin-right: 10px;
           img {
             border: 1px white solid;
             margin-right: 4px;
           }
         }
       }
-      .category {
-        display: inline-block;
+      .menu {
+        b {
+          margin-right: 10px;
+        }
+        .category {
+          display: inline-block;
+        }
       }
     }
     .login {
@@ -120,9 +125,14 @@ a {
   }
 }
 
-@media screen and (max-width: 750px)  {
+@media only screen and (max-width: 750px)  {
   .container {
     width: 100%;
+    .menu {
+      display: flex;
+      flex-direction: column;
+      margin-left: 4px;
+    }
     .search {
       width: 100%;
       form {

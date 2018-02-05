@@ -73,6 +73,7 @@ class ItemController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.xml { render :xml => @items.to_xml }
     end
     @@iteration += 1
   end

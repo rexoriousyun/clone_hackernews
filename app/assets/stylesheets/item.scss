@@ -90,7 +90,6 @@ a {
       padding: 5px 0 5px 34px;
     }
   }
-
   .footer {
     background-color: rgb(246, 246, 239);
     display: flex;
@@ -113,6 +112,18 @@ a {
     .search {
       color: #828282;
       margin: 14px 0;
+    }
+  }
+}
+
+@media (max-width: 750px)  {
+  .container {
+    width: 100%;
+    .search {
+      width: 100%;
+      input {
+        width: 90%;
+      }
     }
   }
 }

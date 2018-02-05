@@ -8,11 +8,12 @@ window.onload = function() {
     xhr.onload = function (){
       if (xhr.readyState === xhr.DONE) {
         if (xhr.status === 200) {
-          var newElement = new window.DOMParser().parseFromString(xhr.response, 'text/html');
+          var newElement = (new DOMParser()).parseFromString(xhr.response, 'text/xml');
+          console.log(xhr.response, newElement)
           var newItems = newElement.getElementsByClassName('item');
-          newItems.forEach(function(newItem){
-            itemList.appendChild(newItem);
-          })
+          for (i=0; i < newItems.length; i++) {
+            itemList.appendChild(newItems[i]);
+          };
         }
       }
     };

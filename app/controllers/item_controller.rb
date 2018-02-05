@@ -9,7 +9,7 @@ class ItemController < ApplicationController
     @items = []
     list = JSON.parse(open("https://hacker-news.firebaseio.com/v0/topstories.json").read)
     30.times do |i|
-      num_items = num_items + 1
+      num_items += 1
       content = {}
       item = JSON.parse(open("https://hacker-news.firebaseio.com/v0/item/" + list[num_items-1].to_s + ".json").read)
       content['id'] = list[num_items-1]
